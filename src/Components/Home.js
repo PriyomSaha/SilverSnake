@@ -15,11 +15,11 @@ function Home() {
             &nbsp;<br></br>Welcome to
           </span>
           <br></br>
-          <span className="fs-1 fw-bolder">SilverSnake IT Solutions</span>
+          <span className="fs-1 fw-bolder">SilverSnake Technologies LLP</span>
           <br></br>
           <div className="py-3">
             Your Trusted Partner for Innovative IT Solutions.<br></br>
-            At SilverSnake IT Solutions, we are committed to providing
+            At SilverSnake Technologies LLP, we are committed to providing
             cutting-edge technology solutions that empower businesses to thrive
             in today&#39;s digital landscape. With our comprehensive range of
             services, including software development, managed services, cloud

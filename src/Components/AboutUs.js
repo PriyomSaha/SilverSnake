@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 // import as from "../Components/Images/AS.gif";
 import as from "../Components/Images/AS.svg";
+import { Link } from "react-router-dom";
 
 function AboutUs() {
   return (
@@ -15,7 +16,7 @@ function AboutUs() {
           <div className="py-3">
             <span>At &nbsp;</span>
             <span className="fs-3 fw-bold" style={{ color: "#233d63" }}>
-              SilverSnake IT Solutions
+              SilverSnake Technologies LLP
             </span>
             ,
             <br /> We pride ourselves on our customer-centric approach,
@@ -24,11 +25,13 @@ function AboutUs() {
             technology and dedicated to helping your business succeed.
           </div>
           <div>
-            Contact us today to explore how SilverSnake IT Solutions can
+            Contact us today to explore how SilverSnake Technologies LLP can
             transform your business with our innovative IT services and
             solutions. Let us be your trusted partner on your digital journey.
           </div>
-          <Button className="mt-2">Contact us</Button>
+          <Link to="/contact">
+            <Button className="mt-2">Contact us</Button>
+          </Link>
         </Col>
         <Col
           md={5}

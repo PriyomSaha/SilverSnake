@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Navbar, Offcanvas } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
   let expand = "md";
 
-  let [nav, setNav] = useState("home");
+  let [nav, setNav] = useState("/");
+
+  const location = useLocation();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  let setActiveNav = () => {
+    setNav(location.pathname);
+  };
+  useEffect(() => {
+    setActiveNav();
+  }, [setActiveNav]);
+
   return (
     <>
       <Navbar
@@ -23,6 +34,7 @@ function Header() {
             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
             placement="end"
             data-bs-theme="dark"
+            backdrop="static"
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
@@ -30,47 +42,48 @@ function Header() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
+              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li className="nav-item">
                   <Link
                     to="/"
-                    className={nav === "home" ? "nav-link active" : "nav-link"}
-                    onClick={() => setNav("home")}
+                    className={nav === "/" ? "nav-link active" : "nav-link"}
+                    onClick={setActiveNav}
                   >
-                    {/* className="nav-link" */}
                     Home
                   </Link>
                 </li>
-                <div class="vr d-none d-md-block" />
-                <li class="nav-item">
+                <div className="vr d-none d-md-block" />
+                <li className="nav-item">
                   <Link
                     to="/about"
-                    className={nav === "about" ? "nav-link active" : "nav-link"}
-                    onClick={() => setNav("about")}
+                    className={
+                      nav === "/about" ? "nav-link active" : "nav-link"
+                    }
+                    onClick={setActiveNav}
                   >
                     About Us
                   </Link>
                 </li>
-                <div class="vr d-none d-md-block" />
-                <li class="nav-item">
+                <div className="vr d-none d-md-block" />
+                <li className="nav-item">
                   <Link
-                    to="/services"
+                    to="services"
                     className={
-                      nav === "services" ? "nav-link active" : "nav-link"
+                      nav === "/services" ? "nav-link active" : "nav-link"
                     }
-                    onClick={() => setNav("services")}
+                    onClick={setActiveNav}
                   >
                     Our Services
                   </Link>
                 </li>
-                <div class="vr d-none d-md-block" />
-                <li class="nav-item">
+                <div className="vr d-none d-md-block" />
+                <li className="nav-item">
                   <Link
                     to="/contact"
                     className={
-                      nav === "contact" ? "nav-link active" : "nav-link"
+                      nav === "/contact" ? "nav-link active" : "nav-link"
                     }
-                    onClick={() => setNav("contact")}
+                    onClick={setActiveNav}
                   >
                     Contact Us
                   </Link>

@@ -3,7 +3,7 @@ import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import contactUs from "../Components/Images/contact_us.svg";
 // import Form from "react-bootstrap/Form";
 
-function ContactUs() {
+function ContactUs(props) {
   return (
     <Container
       fluid="lg"
@@ -15,7 +15,7 @@ function ContactUs() {
           <div className="py-3">
             <span className="fs-3 fw-bold" style={{ color: "#233d63" }}>
               Thank you for your interest in <br />
-              SilverSnake IT Solutions!
+              SilverSnake Technologies LLP!
             </span>
             ,
             <br /> Whether you're looking to optimize your existing IT
@@ -29,7 +29,7 @@ function ContactUs() {
             and contribute to your digital success.
           </div>
           <div className="mb-3">Please fill some basic details.</div>
-          <Button>Fill Form</Button>
+          <Button onClick={() => props.setShow(!props.show)}>Fill Form</Button>
         </Col>
         <Col
           md={5}
