@@ -13,20 +13,25 @@ import ContactUsForm from "./Components/ContactUsForm";
 import { useState } from "react";
 
 function App() {
-  let [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
+  const [service, setService] = useState("All");
+
   return (
     <div className="App">
       <Header />
+      <ContactUsForm show={show} setShow={setShow} service={service} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
+        <Route
+          path="/services"
+          element={<Services setShow={setShow} setService={setService} />}
+        />
         <Route path="/about" element={<AboutUs />} />
         <Route
           path="/contact"
           element={<ContactUs show={show} setShow={setShow} />}
         />
       </Routes>
-      <ContactUsForm show={show} setShow={setShow} />
       <ContactUsShort />
       <Footer />
     </div>

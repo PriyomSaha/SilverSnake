@@ -22,7 +22,7 @@ function Header() {
       <Navbar
         key={expand}
         expand={expand}
-        className="shadow w-100 flex-nowrap sticky-top"
+        className="shadow w-100 flex-nowrap fixed-top"
         bg="dark"
         variant="dark"
       >
@@ -52,18 +52,7 @@ function Header() {
                     Home
                   </Link>
                 </li>
-                <div className="vr d-none d-md-block" />
-                <li className="nav-item">
-                  <Link
-                    to="/about"
-                    className={
-                      nav === "/about" ? "nav-link active" : "nav-link"
-                    }
-                    onClick={setActiveNav}
-                  >
-                    About Us
-                  </Link>
-                </li>
+
                 <div className="vr d-none d-md-block" />
                 <li className="nav-item">
                   <Link
@@ -74,6 +63,18 @@ function Header() {
                     onClick={setActiveNav}
                   >
                     Our Services
+                  </Link>
+                </li>
+                <div className="vr d-none d-md-block" />
+                <li className="nav-item">
+                  <Link
+                    to="/about"
+                    className={
+                      nav === "/about" ? "nav-link active" : "nav-link"
+                    }
+                    onClick={setActiveNav}
+                  >
+                    About Us
                   </Link>
                 </li>
                 <div className="vr d-none d-md-block" />

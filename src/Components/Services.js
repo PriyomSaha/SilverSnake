@@ -10,7 +10,7 @@ import connectingTeams from "../Components/Images/connecting_teams.svg";
 
 import { Col, Container, Row } from "react-bootstrap";
 
-function Services() {
+function Services({ setShow, setService }) {
   let variant = "light";
   return (
     <Container fluid="lg" className="base-container mt-2">
@@ -29,6 +29,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("Software Development");
+              setShow(true);
+            }}
           >
             <Card.Img variant="top" src={development} className="img-fit" />
             <Card.Body className="slider">
@@ -52,6 +56,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("Managed Services");
+              setShow(true);
+            }}
           >
             <Card.Img variant="top" src={engineering} className="img-fit" />
             <Card.Body className="slider">
@@ -75,6 +83,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("Cloud Computing");
+              setShow(true);
+            }}
           >
             <Card.Img variant="top" src={cloudHosting} className="img-fit" />
             <Card.Body className="slider">
@@ -96,6 +108,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("Cybersecurity");
+              setShow(true);
+            }}
           >
             <Card.Img variant="top" src={cyberSecurity} className="img-fit" />
             <Card.Body className="slider">
@@ -118,6 +134,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("AI and ML");
+              setShow(true);
+            }}
           >
             <Card.Img variant="top" src={aiMl} className="img-fit" />
             <Card.Body className="slider">
@@ -140,6 +160,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("Software Products");
+              setShow(true);
+            }}
           >
             <Card.Img
               variant="top"
@@ -166,6 +190,10 @@ function Services() {
             key={variant}
             text={"dark"}
             className="mb-2 card-hover"
+            onClick={() => {
+              setService("Staffing Services");
+              setShow(true);
+            }}
           >
             <Card.Img variant="top" src={connectingTeams} className="img-fit" />
             <Card.Body className="slider">

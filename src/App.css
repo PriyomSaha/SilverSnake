@@ -1,6 +1,7 @@
 .App{
 font-family: 'Poppins', sans-serif;
 overflow-x: hidden;
+margin-top: 8vh;
 }
 img {
 overflow-clip-margin: content-box;
@@ -9,14 +10,23 @@ overflow: clip;
 .base-container{
 min-height: 90vh;
 }
+
+/* Scroll Bar */
+::-webkit-scrollbar{
+  display: none;
+}
 .footer{
 background-color: #0a1435;
-min-height: 10vh;
-color: aliceblue;
-
-color: #233d63;
+height: 40vh;
+/* height: auto; */
+color: rgb(154, 196, 232);
+bottom:0;
+padding: 0 5vh;
 }
-
+.footer-container{
+  transform: translateY(50%);
+  margin-top: 2vh;
+}
 a:link { text-decoration: none; }
 
 .contact-us-short{
@@ -47,6 +57,9 @@ max-width: 50vw;
     .contact-us-short{
         max-width: 90vw;
     }
+    .footer{
+      padding: 0 1vh;
+    }
   }
   @media only screen and (max-width: 430px) {
     .contact-us-short{
@@ -54,4 +67,18 @@ max-width: 50vw;
     }
     }
 
+    @media only screen and (max-width: 576px) {
+      .contact-us-short{
+          max-width: 98vw;
+      }
+      .footer{
+        font-size:small;
+        height:50vh
+      }
+      }
     
+      @media only screen and (max-width: 300px) {
+        .footer{
+          font-size:x-small;
+        }
+        }

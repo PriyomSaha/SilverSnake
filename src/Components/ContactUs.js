@@ -29,7 +29,7 @@ function ContactUs(props) {
             and contribute to your digital success.
           </div>
           <div className="mb-3">Please fill some basic details.</div>
-          <Button onClick={() => props.setShow(!props.show)}>Fill Form</Button>
+          <Button onClick={() => props.setShow(!props.show)}>Connect</Button>
         </Col>
         <Col
           md={5}

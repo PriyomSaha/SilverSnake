@@ -5,11 +5,11 @@ function ContactUsShort() {
   return (
     <Container fluid className="contact-us-short rounded py-3">
       <Row>
-        <Col className="align-self-start col-8">
+        <Col sm={6} className="align-self-start">
           <div>Ready to get started?</div>
           <div> Talk to us today !!!</div>
         </Col>
-        <Col className="align-self-end col-4">
+        <Col sm={6} className="align-self-end mt-2 ">
           <Button className="text-nowrap float-end ">Get Stared</Button>
         </Col>
       </Row>
