@@ -32,7 +32,7 @@ function App() {
           element={<ContactUs show={show} setShow={setShow} />}
         />
       </Routes>
-      <ContactUsShort />
+      <ContactUsShort show={show} setShow={setShow}/>
       <Footer />
     </div>
   );

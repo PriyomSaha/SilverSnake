@@ -22,12 +22,14 @@ function Header() {
       <Navbar
         key={expand}
         expand={expand}
-        className="shadow w-100 flex-nowrap fixed-top"
-        bg="dark"
+        className="shadow w-100 flex-nowrap fixed-top header"
+        // bg="dark"
         variant="dark"
       >
         <Container fluid className="text-uppercase">
-          <Navbar.Brand>SilverSnake</Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand>SilverSnake</Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${expand}`}

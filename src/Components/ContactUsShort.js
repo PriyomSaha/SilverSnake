@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-function ContactUsShort() {
+function ContactUsShort(props) {
   return (
     <Container fluid className="contact-us-short rounded py-3">
       <Row>
@@ -10,7 +10,12 @@ function ContactUsShort() {
           <div> Talk to us today !!!</div>
         </Col>
         <Col sm={6} className="align-self-end mt-2 ">
-          <Button className="text-nowrap float-end ">Get Stared</Button>
+          <Button
+            className="text-nowrap float-end "
+            onClick={() => props.setShow(!props.show)}
+          >
+            Get Stared
+          </Button>
         </Col>
       </Row>
     </Container>

@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Notifications from "./Notifications";
 import Spinner from "react-bootstrap/Spinner";
+import emailjs from "@emailjs/browser";
 
 function ContactUsForm(props) {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -13,25 +14,25 @@ function ContactUsForm(props) {
 
   const sendEmail = async (e) => {
     await setSendingUpdate(true);
-    // await emailjs
-    //   .sendForm(
-    //     "service_8fy4xld",
-    //     "template_hl6atm4",
-    //     form.current,
-    //     "qEi7exxYU4hQViKSy"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //       props.setShow(false);
-    //       setShowSuccess(true);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //       setShowFail(true);
-    //       props.setShow(false);
-    //     }
-    //   );
+    await emailjs
+      .sendForm(
+        "service_8fy4xld",
+        "template_hl6atm4",
+        form.current,
+        "qEi7exxYU4hQViKSy"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          props.setShow(false);
+          setShowSuccess(true);
+        },
+        (error) => {
+          console.log(error.text);
+          setShowFail(true);
+          props.setShow(false);
+        }
+      );
     await setSendingUpdate(false);
   };
 
