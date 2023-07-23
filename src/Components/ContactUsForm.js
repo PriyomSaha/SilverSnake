@@ -10,16 +10,17 @@ function ContactUsForm(props) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFail, setShowFail] = useState(false);
   const [sendingUpdate, setSendingUpdate] = useState(false);
+
   const form = useRef();
 
   const sendEmail = async (e) => {
     await setSendingUpdate(true);
     await emailjs
       .sendForm(
-        "service_8fy4xld",
-        "template_hl6atm4",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         form.current,
-        "qEi7exxYU4hQViKSy"
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {

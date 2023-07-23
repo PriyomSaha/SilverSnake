@@ -52,19 +52,23 @@ function Footer() {
                 <span style={{ color: "#97b1d7" }}>
                   <BsFillTelephoneFill />
                 </span>
-                &nbsp; : &nbsp;+91 40 3516 0829
+                &nbsp; : &nbsp;<a href="tel:+914035160829">+91 40 3516 0829</a>
               </div>
               <div>
                 <span style={{ color: "#97b1d7" }}>
                   <BsFillTelephoneFill />
                 </span>
-                &nbsp; : &nbsp;+91 40 3517 1332
+                &nbsp; : &nbsp;
+                <a href="tel:+91 40 3517 1332">+91 40 3517 1332</a>
               </div>
               <div>
                 <span style={{ color: "#97b1d7" }}>
                   <MdEmail />
                 </span>
-                &nbsp; : &nbsp;contact@silversnakeit.com
+                &nbsp; : &nbsp;
+                <a href="mailto:contact@silversnakeit.com">
+                  contact@silversnakeit.com
+                </a>
               </div>
             </Col>
             <Col sm={6} className="mt-2 my-auto">

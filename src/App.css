@@ -3,6 +3,9 @@ font-family: 'Poppins', sans-serif;
 overflow-x: hidden;
 margin-top: 8vh;
 }
+a{
+  text-decoration: none;
+}
 .header{
   background-color: #0a1435
 }
