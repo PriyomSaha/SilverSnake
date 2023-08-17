@@ -96,6 +96,8 @@ function ContactUsForm(props) {
               <PhoneInput
                 placeholder="Enter phone number"
                 country={country.toLowerCase()}
+                enableSearch={true}
+                countryCodeEditable={false}
                 value={mobile}
                 onChange={setMobile}
               />
