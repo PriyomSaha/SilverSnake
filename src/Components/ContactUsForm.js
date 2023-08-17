@@ -1,10 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Notifications from "./Notifications";
 import Spinner from "react-bootstrap/Spinner";
 import emailjs from "@emailjs/browser";
+import Countries from "./Countries";
+import PhoneInput from "react-phone-input-2";
 
 function ContactUsForm(props) {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -37,6 +39,9 @@ function ContactUsForm(props) {
     await setSendingUpdate(false);
   };
 
+  const [country, setCountry] = useState("IN");
+  const [mobile, setMobile] = useState();
+
   return (
     <div>
       <Notifications
@@ -54,7 +59,7 @@ function ContactUsForm(props) {
       >
         <Modal.Header>
           <Modal.Title className="text-center">
-            Help us understand your need better
+            Fill some basic details
           </Modal.Title>
         </Modal.Header>
         <Form ref={form} className="needs-validation">
@@ -84,6 +89,16 @@ function ContactUsForm(props) {
               <div className="invalid-feedback">
                 Please enter a valid email-id
               </div>
+            </Form.Group>
+            <Countries country={country} setCountry={setCountry} />
+            <Form.Group className="mb-3">
+              <Form.Label>Enter Phone number</Form.Label>
+              <PhoneInput
+                placeholder="Enter phone number"
+                country={country.toLowerCase()}
+                value={mobile}
+                onChange={setMobile}
+              />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Domain of Excellence</Form.Label>

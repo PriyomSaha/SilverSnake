@@ -3,6 +3,11 @@ font-family: 'Poppins', sans-serif;
 overflow-x: hidden;
 margin-top: 8vh;
 }
+
+.react-tel-input .form-control {
+  width: 100%;
+}
+
 a{
   text-decoration: none;
 }

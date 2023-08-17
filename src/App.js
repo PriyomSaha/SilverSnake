@@ -1,3 +1,4 @@
+import "react-phone-input-2/lib/style.css";
 import "./App.css";
 import ContactUsShort from "./Components/ContactUsShort";
 import ContactUs from "./Components/ContactUs";
@@ -29,10 +30,12 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route
           path="/contact"
-          element={<ContactUs show={show} setShow={setShow} />}
+          element={
+            <ContactUs show={show} setShow={setShow} setService={setService} />
+          }
         />
       </Routes>
-      <ContactUsShort show={show} setShow={setShow}/>
+      <ContactUsShort show={show} setShow={setShow} />
       <Footer />
     </div>
   );

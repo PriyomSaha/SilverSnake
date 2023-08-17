@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import contactUs from "../Components/Images/contact_us.svg";
 // import Form from "react-bootstrap/Form";
 
 function ContactUs(props) {
+  useEffect(() => {
+    props.setService("All");
+  }, []);
+
   return (
     <Container
       fluid="lg"
