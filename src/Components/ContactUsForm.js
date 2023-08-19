@@ -18,10 +18,18 @@ function ContactUsForm(props) {
   const sendEmail = async (e) => {
     await setSendingUpdate(true);
     await emailjs
-      .sendForm(
+      .send(
         process.env.REACT_APP_SERVICE_ID,
         process.env.REACT_APP_TEMPLATE_ID,
-        form.current,
+        // form.current,
+        {
+          user_name: name,
+          user_email: email,
+          user_mobile: `+${mobile}`,
+          domain: domain,
+          message: message,
+          country: country.split("-")[1],
+        },
         process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
@@ -39,8 +47,12 @@ function ContactUsForm(props) {
     await setSendingUpdate(false);
   };
 
-  const [country, setCountry] = useState("IN");
+  const [name, setName] = useState();
+  const [email, setemail] = useState();
+  const [country, setCountry] = useState("IN-India");
   const [mobile, setMobile] = useState();
+  const [domain, setDomain] = useState(props.service);
+  const [message, setMessage] = useState();
 
   return (
     <div>
@@ -72,6 +84,8 @@ function ContactUsForm(props) {
                 autoFocus
                 name="user_name"
                 required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <div className="invalid-feedback">
                 Please enter your full name
@@ -83,8 +97,9 @@ function ContactUsForm(props) {
                 type="email"
                 placeholder="name@domain.com"
                 name="user_email"
-                id="cust_email"
                 required
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
               />
               <div className="invalid-feedback">
                 Please enter a valid email-id
@@ -95,7 +110,7 @@ function ContactUsForm(props) {
               <Form.Label>Enter Phone number</Form.Label>
               <PhoneInput
                 placeholder="Enter phone number"
-                country={country.toLowerCase()}
+                country={country.split("-")[0].toLowerCase()}
                 enableSearch={true}
                 countryCodeEditable={false}
                 value={mobile}
@@ -104,62 +119,21 @@ function ContactUsForm(props) {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Domain of Excellence</Form.Label>
-              <Form.Select name="domain">
-                {props.service}
-                <option
-                  value="All"
-                  selected={props.service === "All" ? true : false}
-                >
-                  All
-                </option>
-                <option
-                  value="Software Development"
-                  selected={
-                    props.service === "Software Development" ? true : false
-                  }
-                >
+              <Form.Select
+                name="domain"
+                value={domain}
+                onChange={(e) => setDomain(e.target.value)}
+              >
+                <option value="All">All</option>
+                <option value="Software Development">
                   Software Development
                 </option>
-                <option
-                  value="Managed Services"
-                  selected={props.service === "Managed Services" ? true : false}
-                >
-                  Managed Services
-                </option>
-                <option
-                  value="Cloud Computing"
-                  selected={props.service === "Cloud Computing" ? true : false}
-                >
-                  Cloud Computing
-                </option>
-                <option
-                  value="Cybersecurity"
-                  selected={props.service === "Cybersecurity" ? true : false}
-                >
-                  Cybersecurity
-                </option>
-                <option
-                  value="AI and ML"
-                  selected={props.service === "AI and ML" ? true : false}
-                >
-                  AI and ML
-                </option>
-                <option
-                  value="Software Products"
-                  selected={
-                    props.service === "Software Products" ? true : false
-                  }
-                >
-                  Software Products
-                </option>
-                <option
-                  value="Staffing Services"
-                  selected={
-                    props.service === "Staffing Services" ? true : false
-                  }
-                >
-                  Staffing Services
-                </option>
+                <option value="Managed Services">Managed Services</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="AI and ML">AI and ML</option>
+                <option value="Software Products">Software Products</option>
+                <option value="Staffing Services">Staffing Services</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
@@ -169,6 +143,8 @@ function ContactUsForm(props) {
                 rows={3}
                 name="message"
                 placeholder="You can provide some additional details"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </Form.Group>
           </Modal.Body>
