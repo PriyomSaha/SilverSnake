@@ -7,11 +7,20 @@ import Spinner from "react-bootstrap/Spinner";
 import emailjs from "@emailjs/browser";
 import Countries from "./Countries";
 import PhoneInput from "react-phone-input-2";
+import {
+  useServiceStore,
+  useShowContactUsFormStore,
+} from "./States/ManageStates";
 
-function ContactUsForm(props) {
+function ContactUsForm() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showFail, setShowFail] = useState(false);
   const [sendingUpdate, setSendingUpdate] = useState(false);
+
+  const domain = useServiceStore((state) => state.service);
+  const setDomain = useServiceStore((state) => state.setService);
+  const setShow = useShowContactUsFormStore((state) => state.setIsOpen);
+  const show = useShowContactUsFormStore((state) => state.isOpen);
 
   const form = useRef();
 
@@ -35,23 +44,22 @@ function ContactUsForm(props) {
       .then(
         (result) => {
           console.log(result.text);
-          props.setShow(false);
+          setShow();
           setShowSuccess(true);
         },
         (error) => {
           console.log(error.text);
           setShowFail(true);
-          props.setShow(false);
+          setShow();
         }
       );
-    await setSendingUpdate(false);
+    await setSendingUpdate();
   };
 
   const [name, setName] = useState();
   const [email, setemail] = useState();
   const [country, setCountry] = useState("IN-India");
   const [mobile, setMobile] = useState();
-  const [domain, setDomain] = useState(props.service);
   const [message, setMessage] = useState();
 
   return (
@@ -63,8 +71,8 @@ function ContactUsForm(props) {
         setShowFail={setShowFail}
       />
       <Modal
-        show={props.show}
-        onHide={() => props.setShow(false)}
+        show={show}
+        onHide={() => setShow()}
         centered
         backdrop="static"
         keyboard={false}
@@ -152,7 +160,7 @@ function ContactUsForm(props) {
             <Button
               variant="danger"
               onClick={() => {
-                props.setShow(false);
+                setShow();
               }}
             >
               Close

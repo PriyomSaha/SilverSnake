@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import contactUs from "../Components/Images/contact_us.svg";
+import {
+  useServiceStore,
+  useShowContactUsFormStore,
+} from "./States/ManageStates";
 // import Form from "react-bootstrap/Form";
 
-function ContactUs(props) {
+function ContactUs() {
+  const setShow = useShowContactUsFormStore((state) => state.setIsOpen);
+  const setDomain = useServiceStore((state) => state.setService);
+
   useEffect(() => {
-    props.setService("All");
+    setDomain("All");
   }, []);
 
   return (
@@ -33,7 +40,7 @@ function ContactUs(props) {
             and contribute to your digital success.
           </div>
           <div className="mb-3">Please fill some basic details.</div>
-          <Button onClick={() => props.setShow(!props.show)}>Connect</Button>
+          <Button onClick={() => setShow()}>Connect</Button>
         </Col>
         <Col
           md={5}
