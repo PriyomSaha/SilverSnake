@@ -25,6 +25,7 @@ function ContactUsForm() {
   const form = useRef();
 
   const sendEmail = async (e) => {
+    console.log();
     await setSendingUpdate(true);
     await emailjs
       .send(
