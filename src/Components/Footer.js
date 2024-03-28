@@ -15,34 +15,6 @@ function Footer() {
     <>
       <div className="footer">
         <Container fluid className="footer-container">
-          {/* <Row className="d-flex align-items-center">
-            <Col
-              sm={6}
-              className="d-flex  justify-content-center justify-content-sm-start"
-            >
-              Follow us on
-            </Col>
-            <Col
-              sm={6}
-              className="d-flex align-middle justify-content-center justify-content-sm-end"
-            >
-              <span className="pe-2">
-                <BsFacebook />
-              </span>
-              <span className="pe-2">
-                <BsInstagram />
-              </span>
-              <span className="pe-2">
-                <BsTwitter />
-              </span>
-              <span className="pe-2">
-                <BsLinkedin />
-              </span>
-              <span className="pe-2">
-                <BsGithub />
-              </span>
-            </Col>
-          </Row> */}
           <Row>
             <Col sm={6} className="my-auto">
               <div className="d-flex my-auto justify-content-start">
@@ -96,7 +68,10 @@ function Footer() {
           </Row>
           <hr />
           <Row className="m-auto">
-            © 2023 SilverSnake Technologies LLP - All right reserved
+            <Col sm={12} className="text-center">
+              © {new Date().getFullYear()} SilverSnake Technologies LLP - All
+              right reserved
+            </Col>
           </Row>
         </Container>
       </div>
