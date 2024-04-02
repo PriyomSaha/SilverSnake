@@ -24,15 +24,15 @@ function Footer() {
                 <span style={{ color: "#97b1d7" }}>
                   <BsFillTelephoneFill />
                 </span>
-                &nbsp; : &nbsp;<a href="tel:+914035160829">+91 40 3516 0829</a>
+                &nbsp; : &nbsp;<a href="tel:+914035011582">+91 40 3501 1582</a>
               </div>
-              <div>
-                <span style={{ color: "#97b1d7" }}>
-                  <BsFillTelephoneFill />
-                </span>
-                &nbsp; : &nbsp;
-                <a href="tel:+91 40 3517 1332">+91 40 3517 1332</a>
-              </div>
+              //<div>
+              //  <span style={{ color: "#97b1d7" }}>
+              //    <BsFillTelephoneFill />
+              //  </span>
+            //    &nbsp; : &nbsp;
+             //   <a href="tel:+91 40 3517 1332">+91 40 3517 1332</a>
+            //  </div>
               <div>
                 <span style={{ color: "#97b1d7" }}>
                   <MdEmail />
